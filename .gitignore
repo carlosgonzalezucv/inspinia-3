@@ -1,1 +1,4 @@
 /.idea
+Angular_Seed_Project_Gulp/.tmp
+Angular_Seed_Project_Gulp/node_modules/*
+Angular_Seed_Project_Gulp/bower_components/*

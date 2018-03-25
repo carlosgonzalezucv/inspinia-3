@@ -3,7 +3,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
-
+var babel = require('gulp-babel');
 var $ = require('gulp-load-plugins')();
 
 var wiredep = require('wiredep').stream;
@@ -25,8 +25,11 @@ gulp.task('inject', ['scripts', 'styles'], function () {
     path.join(conf.paths.src, '/app/**/*.module.js'),
     path.join(conf.paths.src, '/app/**/*.js'),
     path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
-    path.join('!' + conf.paths.src, '/app/**/*.mock.js'),
+    path.join('!' + conf.paths.src, '/app/**/*.mock.js')
   ])
+  .pipe(babel({
+    presets: ['env']
+  }))
   .pipe($.angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
 
   var injectOptions = {

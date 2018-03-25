@@ -1,14 +1,11 @@
 (function() {
   'use strict';
-
   angular
     .module('inspinia')
     .config(routerConfig);
-
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-
       .state('index', {
         abstract: true,
         url: "/index",
@@ -24,8 +21,6 @@
         templateUrl: "app/minor/minor.html",
         data: { pageTitle: 'Example view' }
       });
-
     $urlRouterProvider.otherwise('/index/main');
   }
-
 })();
